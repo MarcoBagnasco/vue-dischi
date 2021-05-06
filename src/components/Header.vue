@@ -13,6 +13,7 @@ export default {
 <style scoped lang="scss">
     header{
         height: 65px;
+        margin-bottom: 90px;
         padding: 10px;
         background-color: rgba(#fff, .07);
         img{
