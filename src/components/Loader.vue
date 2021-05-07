@@ -1,5 +1,5 @@
 <template>
-    <div class="loader">
+    <div class="loader flex jc-center ai-center txt-center">
         <div class="bar">
             <div class="bar-slide"></div>
         </div>
@@ -16,47 +16,50 @@ export default {
 <style scoped lang="scss">
     .loader{
         position: fixed;
-        display: flex;
-        justify-content: center;
-        align-items: center;
         flex-direction: column;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
-        text-align: center;
         letter-spacing: 2px;
 
         .bar{
             position: relative;
             width: 200px;
             height: 20px;
-        }
-        .bar-slide{
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 15%;
-            height: 100%;
-            margin-bottom: 10px;
-            background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);  
-            animation: slide 1.5s linear infinite;
+
+            .bar-slide{
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 15%;
+                height: 100%;
+                margin-bottom: 10px;
+                background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);  
+                animation: slide 1.5s linear infinite;
+            }
         }
     }
+
     .text{
         font-size: 1.5rem;
+
         #point-1{
             animation: view1 2s linear infinite;
         }
+
         #point-2{
             opacity: 0;
             animation: view2 2s .5s linear infinite;
         }
+
         #point-3{
             opacity: 0;
             animation: view3 2s 1s linear infinite;
         }
     }
+
+    // Point animation
     @keyframes view1 {
         from, 75%{
             opacity: 1;
@@ -81,6 +84,8 @@ export default {
             opacity: 0;
         }
     }
+    
+    // Bar animation
     @keyframes slide {
         47%{
             transform: rotateY(0);

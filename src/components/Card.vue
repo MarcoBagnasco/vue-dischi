@@ -1,5 +1,5 @@
 <template>
-    <div class="card">
+    <div class="card txt-center">
         <img :src="thumb.poster" :alt="thumb.title">
         <h3>{{ thumb.title }}</h3>
         <div class="author">{{ thumb.author }}</div>
@@ -19,8 +19,6 @@ export default {
 
 <style scoped lang="scss">
     .card{
-        text-align: center;
-    
         h3{
             margin: 1.4rem 0;
             text-transform: uppercase;

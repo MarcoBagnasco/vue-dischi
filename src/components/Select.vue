@@ -1,5 +1,5 @@
 <template>
-    <div class="select">
+    <div class="select flex jc-center">
         <label for="genre">Filter by genre:</label>
         <select name="genre" id="genre" v-model="option" @change="$emit('selection', option)">
             <option value="all">All</option>
@@ -35,10 +35,8 @@ export default {
 
 <style scoped lang="scss">
     .select{
-        display: flex;
-        justify-content: center;
-        align-items: start;
         margin-bottom: 15px;
+        
         select{
             margin-left: 20px;
         }

@@ -1,18 +1,22 @@
 <template>
     <main>
-        <Select @selection="choose" :genre="albums"/>
-        <section v-if="!loading" class="albums-sect">
+        <Select v-if="!loading" @selection="choose" :genre="albums"/>
+
+        <section v-if="!loading" class="albums-sect flex jc-center">
             <div v-for="(album, index) in filterByGenre" :key="index" class="album">
                 <Card :thumb="album" />
             </div>
         </section>
+
         <Loader v-else />
     </main>
 </template>
 
 <script>
+// AXIOS
 import axios from 'axios';
 
+// COMPONENTS
 import Card from '@/components/Card.vue'
 import Loader from '@/components/Loader.vue'
 import Select from '@/components/Select.vue'
@@ -58,7 +62,9 @@ export default {
                 console.log(error);
             });
         },
-
+        /**
+         * Change genre
+         */
         choose(option){
             this.selectedGenre = option;
         }
@@ -67,19 +73,21 @@ export default {
 </script>
 
 <style scoped lang="scss">
+//VARIABLES SCSS
+@import '@/styles/variables.scss';
+
     main{
         padding: 10px 60px;
 
         .albums-sect{
-            display: flex;
-            justify-content: center;
             flex-wrap: wrap;
         }
+
         .album{
             flex-basis: 185px;
             margin: 20px 17px 0;
             padding: 18px;
-            background-color: rgba(#fff, .07);      
+            background-color: $bg-elements;      
         }
     }
 </style>

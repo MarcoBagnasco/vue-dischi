@@ -22,20 +22,12 @@ export default {
 </script>
 
 <style lang="scss">
+// FONT
 @import "~@fontsource/lato/index.css";
 @import "~@fontsource/lato/700.css";
 
-  *{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Lato', sans-serif;
-  }
-  body {
-    color: #fff;
-    background-color: #1d2d3c;
-  }
-  img{
-    max-width: 100%;
-  }
+// GENERAL
+@import '@/styles/general.scss';
+// UTILITIES
+@import '@/styles/utilities.scss';
 </style>

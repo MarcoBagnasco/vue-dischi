@@ -11,11 +11,15 @@ export default {
 </script>
 
 <style scoped lang="scss">
+//VARIABLES SCSS
+@import '@/styles/variables.scss';
+
     header{
         height: 65px;
         margin-bottom: 25px;
         padding: 10px;
-        background-color: rgba(#fff, .07);
+        background-color: $bg-elements;
+
         img{
             height: 100%;
         }
