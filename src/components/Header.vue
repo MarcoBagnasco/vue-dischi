@@ -1,7 +1,7 @@
 <template>
-  <header>
-      <img src="../assets/img/logo.png" alt="logo">
-  </header>
+    <header>
+        <img src="../assets/img/logo.png" alt="logo">
+    </header>
 </template>
 
 <script>
@@ -13,7 +13,7 @@ export default {
 <style scoped lang="scss">
     header{
         height: 65px;
-        margin-bottom: 90px;
+        margin-bottom: 25px;
         padding: 10px;
         background-color: rgba(#fff, .07);
         img{

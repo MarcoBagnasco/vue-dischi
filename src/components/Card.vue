@@ -1,11 +1,11 @@
 <template>
-  <div class="card">
-      <img :src="thumb.poster" :alt="thumb.title">
-      <h3>{{ thumb.title }}</h3>
-      <div class="author">{{ thumb.author }}</div>
-      <div class="year">{{ thumb.year }}</div>
-      <div class="genre">{{ thumb.genre }}</div>
-  </div>
+    <div class="card">
+        <img :src="thumb.poster" :alt="thumb.title">
+        <h3>{{ thumb.title }}</h3>
+        <div class="author">{{ thumb.author }}</div>
+        <div class="year">{{ thumb.year }}</div>
+        <div class="genre">{{ thumb.genre }}</div>
+    </div>
 </template>
 
 <script>
