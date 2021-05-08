@@ -11,12 +11,12 @@ export default {
 </script>
 
 <style scoped lang="scss">
-//VARIABLES SCSS
+// VARIABLES SCSS
 @import '@/styles/variables.scss';
 
     header{
         height: 65px;
-        margin-bottom: 25px;
+        margin-bottom: 10px;
         padding: 10px;
         background-color: $bg-elements;
 

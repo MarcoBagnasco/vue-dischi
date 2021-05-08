@@ -13,3 +13,10 @@ body{
 img{
     max-width: 100%;
 }
+input,
+select{
+    outline: none;
+    &:focus{
+       background-color: rgba(#1ed760, .8);
+    }
+}

@@ -28,6 +28,7 @@ export default {
 
 // GENERAL
 @import '@/styles/general.scss';
+
 // UTILITIES
 @import '@/styles/utilities.scss';
 </style>

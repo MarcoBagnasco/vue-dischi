@@ -1,5 +1,5 @@
 <template>
-    <div class="select flex jc-center">
+    <div class="select flex ai-center">
         <label for="genre">Filter by genre:</label>
         <select name="genre" id="genre" v-model="option" @change="$emit('selection', option)">
             <option value="all">All</option>
@@ -13,14 +13,17 @@ export default {
     name: 'Select',
     props: {
         genre: Array,
+        option: String,
     },
     data(){
         return {
-            option: 'all',
             genreList : [],
         }
     },
     computed: {
+        /**
+         * Populate genre's array
+         */
         getGenre(){
             this.genre.forEach(item => {
                 if(!this.genreList.includes(item.genre)){
@@ -35,10 +38,12 @@ export default {
 
 <style scoped lang="scss">
     .select{
-        margin-bottom: 15px;
+        margin: 10px;
+        flex-shrink: 0;
         
         select{
-            margin-left: 20px;
+            padding: 5px 10px;
+            margin-left: 15px;
         }
     }
 </style>
