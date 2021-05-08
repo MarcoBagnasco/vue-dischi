@@ -28,7 +28,6 @@ export default {
          */
         send(){
             this.$emit(`${this.searching}Search`, this.searchText);           
-            this.searchText = '';
         },
         /**
          * Clean search input

@@ -10,7 +10,7 @@
 
 <script>
 export default {
-    name: 'Select',
+    name: 'SelectGenre',
     props: {
         genre: Array,
         option: String,

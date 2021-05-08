@@ -16,7 +16,6 @@ export default {
 
     header{
         height: 65px;
-        margin-bottom: 10px;
         padding: 10px;
         background-color: $bg-elements;
 

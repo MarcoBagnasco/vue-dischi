@@ -16,7 +16,16 @@ img{
 input,
 select{
     outline: none;
+    border: 0;
+
     &:focus{
        background-color: rgba(#1ed760, .8);
+    }
+}
+
+// Media Query
+@media screen and (max-width: $md){
+    body{
+        font-size: 14px;
     }
 }

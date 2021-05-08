@@ -1,16 +1,17 @@
 <template>
     <main>
-        <div class="filters-wrap flex ai-center">
-            <Filters v-if="!loading" >
-                <Select @selection="chooseGenre" :genre="albums" :option="selectedGenre"/>
-                <Search @AuthorSearch="chooseAuthor" searching="Author"/>
-                <Search @TitleSearch="chooseTitle" searching="Title"/>
-            </Filters>
-            <!-- Filter Messages -->
-            <div v-show="selectedAuthor !== ''" class="look-for">Looked for Author : <span>"{{selectedAuthor}}"</span></div>
-            <div v-show="selectedTitle !== ''" class="look-for">Looked for Title : <span>"{{selectedTitle}}"</span></div>
-            <div v-show="selectedGenre !== 'all'" class="look-for">Looked for Genre : <span>"{{selectedGenre}}"</span></div>
-        </div>
+        <!-- FILTERS -->
+        <Filters v-if="!loading" >
+            <SelectGenre @selection="chooseGenre" :genre="albums" :option="selectedGenre"/>
+            <Search @AuthorSearch="chooseAuthor" searching="Author"/>
+            <Search @TitleSearch="chooseTitle" searching="Title"/>
+        </Filters>
+
+        <!-- FILTER MESSAGES -->
+        <div v-show="selectedAuthor === '' && selectedTitle === '' && selectedGenre === 'all'" class="look-for txt-center"></div>
+        <div v-show="selectedAuthor !== ''" class="look-for txt-center">Looked for Author : <span>"{{selectedAuthor}}"</span></div>
+        <div v-show="selectedTitle !== ''" class="look-for txt-center">Looked for Title : <span>"{{selectedTitle}}"</span></div>
+        <div v-show="selectedGenre !== 'all' && selectedGenre !== ''" class="look-for txt-center">Looked for Genre : <span>"{{selectedGenre}}"</span></div>
 
         <!-- ALBUMS -->
         <section v-if="!loading" class="albums-sect flex jc-center">
@@ -30,7 +31,7 @@ import axios from 'axios';
 // COMPONENTS
 import Card from '@/components/Card.vue'
 import Loader from '@/components/Loader.vue'
-import Select from '@/components/Select.vue'
+import SelectGenre from '@/components/SelectGenre.vue'
 import Filters from '@/components/Filters.vue'
 import Search from '@/components/Search.vue'
 
@@ -39,7 +40,7 @@ export default {
     components: {
         Card,
         Loader,
-        Select,
+        SelectGenre,
         Filters,
         Search,
     },
@@ -128,7 +129,7 @@ export default {
          */
         chooseAuthor(author){
             this.selectedTitle = '';
-            this.selectedGenre = 'all';
+            this.selectedGenre = '';
             this.selectedAuthor = author;
         },
         /**
@@ -136,7 +137,7 @@ export default {
          */
         chooseTitle(title){
             this.selectedAuthor = '';
-            this.selectedGenre = 'all';
+            this.selectedGenre = '';
             this.selectedTitle = title;
         }
     },
@@ -148,11 +149,12 @@ export default {
 @import '@/styles/variables.scss';
 
     main{
-        padding: 10px 60px;
+        padding: 10px 40px;
 
         .look-for{
-            margin-left: 30px;
-            font-size: 1.3rem;
+            height: 25px;
+            margin-top: 5px;
+            font-size: 1.3em;
 
             span{
                 padding: 0 10px;
@@ -165,9 +167,28 @@ export default {
 
         .album{
             flex-basis: 185px;
-            margin: 20px 17px 0;
+            margin: 10px 17px 0;
             padding: 18px;
             background-color: $bg-elements;      
         }
     }
+    
+    // Media Query
+    @media screen and (max-width: $sm){
+        main{
+            padding: 10px;
+
+            .album{
+                margin: 10px 5px 0;
+            }
+        }
+    }
+    @media screen and (max-width: $xs){
+        main{
+            .album{
+                flex-basis: 160px;
+            }
+        }       
+    }
+
 </style>

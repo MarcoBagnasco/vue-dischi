@@ -22,11 +22,11 @@ export default {
         h3{
             margin: 1.4rem 0;
             text-transform: uppercase;
-            font-size: 1.3rem;
+            font-size: 1.3em;
         }
 
         .author{
-            font-size: 1.15rem;
+            font-size: 1.15em;
         }
 
         .author,

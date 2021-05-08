@@ -1,10 +1,11 @@
 <template>
-    <div class="filters flex">
-        <div class="title">
-            <i v-show="!isVisible" class="fas fa-plus" @click="toggle"></i>
-            <i v-show="isVisible" class="fas fa-minus" @click="toggle"></i> 
+    <div class="filters flex ai-center">
+        <div class="title" @click="toggle">
+            <i v-show="!isVisible" class="fas fa-plus"></i>
+            <i v-show="isVisible" class="fas fa-minus"></i> 
             filters
         </div>
+        <!-- Filters -->
         <div class="filter-container-wrapper">
             <div class="filters-container flex ai-center"  :class="{hidden: !isVisible}">
                 <slot></slot>
@@ -37,16 +38,14 @@ export default {
 @import '@/styles/variables.scss';
 
     .title{
-        margin-right: 30px;
-        font-size: 2.5rem;
+        margin-right: 10px;
+        font-size: 1.5em;
         text-transform: uppercase;
-
-        i{
-            cursor: pointer;
-        }
+        cursor: pointer;
     }
     .filters-container{
         width: 100%;
+        height: 100%;
         padding: 0 20px;
         background-color: $bg-elements;
         overflow: hidden;
@@ -56,6 +55,20 @@ export default {
         &.hidden{
             width: 0;
             padding: 0;
+        }
+    }
+
+    // Media Query
+    @media screen and (max-width: $md){
+        .filters,
+        .filters-container{
+            flex-direction: column;
+        }
+        .filters-container.hidden{
+            width: 100%;
+            padding: 0 20px;
+
+            height: 0;
         }
     }
 </style>
